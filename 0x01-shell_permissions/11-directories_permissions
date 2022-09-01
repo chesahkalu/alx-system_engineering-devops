@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod 111 d* /cd.
+chmod 755 d* /cd.
