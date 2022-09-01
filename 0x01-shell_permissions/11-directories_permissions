@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod ugo+x *d ./
+chmod ugo+x d* /cd.
