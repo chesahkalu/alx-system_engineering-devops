@@ -23,7 +23,7 @@
   * [3-until_holberton_school](./3-until_holberton_school): Bash script that displays
   `Best School` 10 times using an `until` loop.
 
-  * [4-if_9_say_hi](./4-if_9_say_hi): Bash script that displays `Holberton School`
+  * [4-if_9_say_hi](./4-if_9_say_hi): Bash script that displays `Best School`
   10 times using a `while` loop.
   * For the 9th iteration, displays `Best School` and then `Hi` on a
   new line.
@@ -53,12 +53,12 @@
 
   * [9-to_file_or_not_to_file](./9-to_file_or_not_to_file): Bash script that gives information
   about the `school` file.
-    * If the file exists, displays: `holbertonschool file exists`.
-    * If the file does not exist, displays: `holbertonschool file does not exist`.
-    * If the file exists and is empty, displays: `holbertonschool file is empty`.
-    * If the file exists and is not empty, displays: `holbertonschoolfile is not
+    * If the file exists, displays: `school file exists`.
+    * If the file does not exist, displays: `school file does not exist`.
+    * If the file exists and is empty, displays: `school file is empty`.
+    * If the file exists and is not empty, displays: `school file is not
     empty`.
-    * If the file exists and is a regular file, displays: `holbertonschool file
+    * If the file exists and is a regular file, displays: `school file
     is a regular file`.
     * Otherwise, displays nothing.
 
