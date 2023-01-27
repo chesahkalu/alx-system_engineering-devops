@@ -11,20 +11,21 @@
 
 ## Tasks files descriptions:
 
-* [0-RSA_public_key.pub](./0-RSA_public_key.pub): A public SSH key
+* [0-RSA_public_key.pub](./0-RSA_public_key.pub): A public SSH key for Login to remote servers for ALX project. 
+  Private key is on the ALX ubuntu sandbox
 
 * [1-for_holberton_school](./1-for_holberton_school): Bash script that displays
-  `Holberton School` 10 times using a `for` loop.
+  `Best School` 10 times using a `for` loop.
 
   * [2-while_holberton_school](./2-while_holberton_school): Bash script that
-  displays `Holberton School` 10 times using a `while` loop.
+  displays `Best School` 10 times using a `while` loop.
 
   * [3-until_holberton_school](./3-until_holberton_school): Bash script that displays
-  `Holberton School` 10 times using an `until` loop.
+  `Best School` 10 times using an `until` loop.
 
   * [4-if_9_say_hi](./4-if_9_say_hi): Bash script that displays `Holberton School`
   10 times using a `while` loop.
-  * For the 9th iteration, displays `Holberton School` and then `Hi` on a
+  * For the 9th iteration, displays `Best School` and then `Hi` on a
   new line.
   * Uses an `if` statement.
 
@@ -32,7 +33,7 @@
   from 1 to 10 using a `while` loop and:
     * Displays `bad luck` on the 4th iteration.
     * Displays `good luck` on the 8th iteration.
-    * Displays `Holberton School` for all other iterations.
+    * Displays `Best school` for all other iterations.
   * Uses the `if`, `elif`, and `else` statements.
 
   * [6-superstitious_numbers](./6-superstitious_numbers): Bash script that displays
@@ -51,7 +52,7 @@
   * Only the part of the name after the first dash is displayed.
 
   * [9-to_file_or_not_to_file](./9-to_file_or_not_to_file): Bash script that gives information
-  about the `holbertonschool` file.
+  about the `school` file.
     * If the file exists, displays: `holbertonschool file exists`.
     * If the file does not exist, displays: `holbertonschool file does not exist`.
     * If the file exists and is empty, displays: `holbertonschool file is empty`.
