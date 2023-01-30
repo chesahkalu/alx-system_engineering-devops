@@ -80,12 +80,13 @@
   place is protected by the passcode PASSWORD, more info about the user here: USER ID INFO`.
 
   * [102-lets_parse_apache_logs](./102-lets_parse_apache_logs): Bash script that displays
-  the visitor IP along with the HTTP status code for logs read from an Apache log access file.
+  the visitor IP along with the HTTP status code for logs read from an Apache log access file,
+  which are ethe first and 9th field respectively.
   * Displays content in the format `IP HTTP_CODE`.
   * Uses `awk`.
 
   * [103-dig_the-data](./103-dig_the-data): Bash script that reads content from an
-  Apace log access file and groups visitors by IP and HTTP status code.
+  Apacche log access file and groups visitors by IP and HTTP status code.
   * Displays the grouped number of visitors to an IP address in the format
   `OCCURRENCE_NUMBER IP HTTP_CODE`.
   * Logs are grouped in order of greatest to lowest number of visitors.
