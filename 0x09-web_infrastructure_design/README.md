@@ -14,7 +14,10 @@ In this project I Learnt about :
 - Load Balancer
 - HTTP and HTTPS
 - LAMP stack
-- 
+- Protocols, Packets, TCP/UP/IP
+- Sub-Domain
+- High Availabilty
+- Ports 
 
 At the end of this project I was able to explain, without the help of Google:
 - You must be able to draw a diagram covering the web stack you built with the sysadmin/devops track projects
