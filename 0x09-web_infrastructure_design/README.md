@@ -13,6 +13,8 @@ In this project I Learnt about :
 - Monitoring
 - Load Balancer
 - HTTP and HTTPS
+- LAMP stack
+- 
 
 At the end of this project I was able to explain, without the help of Google:
 - You must be able to draw a diagram covering the web stack you built with the sysadmin/devops track projects
@@ -91,4 +93,3 @@ You must add to [2-secured_and_monitored_web_infrastructure](2-secured_and_monit
 * Split components (web server, application server, database) with their own server
 You must be able to explain some specifics about this infrastructure:
 * For every additional element, why you are adding it
-
