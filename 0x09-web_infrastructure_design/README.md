@@ -83,4 +83,11 @@ You must be able to explain what the issues are with this infrastructure:
 * Why having only one MySQL server capable of accepting writes is an issue
 * Why having servers with all the same components (database, web server and application server) might be a problem
 
+### [3-scale_up](3-scale_up)
+You must add to [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure):
+* 1 physical server
+* 1 load-balancer (HAproxy) configured as cluster with the other one
+* Split components (web server, application server, database) with their own server
+You must be able to explain some specifics about this infrastructure:
+* For every additional element, why you are adding it
 
