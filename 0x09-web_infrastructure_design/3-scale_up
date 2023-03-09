@@ -16,4 +16,11 @@ The idea behind having servers with all the same components is to ensure consist
 
 Having servers with all the same components can also make it easier to scale out or horizontally. If you need to add more capacity to your infrastructure, you can simply add another server with the same configuration as the existing servers, and it will seamlessly integrate with the cluster.
 
-However, having servers with all the same components also has some drawbacks. If there is a hardware or software issue that affects one server in the cluster, it can potentially affect all the other servers with the same configuration. Additionally, having all the servers with the same components can limit flexibility, as you may not be able to easily switch to different hardware or software configurations if needed.
+However, having servers with all the same components also has some drawbacks. If there is a hardware or software issue that affects one server in the cluster, it can potentially affect all the other servers with the same configuration. Additionally, having all the servers with the same components can limit flexibility, as you may not be able to easily switch to different hardware or software configurations if needed. 
+
+Having servers with all the same components (database, web server and application server) might be a problem because their consumption will not grow the same way between each of them (we might want to have more database servers than application servers for instance).
+
+Having servers with all the same components (database, web server and application server) might be a problem because when there is maintenance performed on a server for a specific component, it will affect other components that are on it
+
+To fix this, add servers containing a single component inside them (such as a web server, application server or database)
+
