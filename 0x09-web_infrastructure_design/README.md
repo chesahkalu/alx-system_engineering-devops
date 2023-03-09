@@ -213,7 +213,9 @@ The web infrastructure design is further leveled up with addition of other eleme
 - `Load Balancer 2` :  Another load balancer is added and configured as a cluster. This eleminates SPOF on the load balancer functionality, enabling high availability in
 the case one fails.
 
-* NOTE : Having servers with all the same components means that each server in the cluster has the same hardware and software configuration. For example, if you have a cluster of web servers, each web server would have the same hardware specifications such as CPU, RAM, and storage capacity, as well as the same software configuration, including the operating system, web server software, and any necessary libraries or dependencies.
+#### Design Issues and faults: :triangular_flag_on_post:
+
+Having servers with all the same components means that each server in the cluster has the same hardware and software configuration. For example, if you have a cluster of web servers, each web server would have the same hardware specifications such as CPU, RAM, and storage capacity, as well as the same software configuration, including the operating system, web server software, and any necessary libraries or dependencies.
 
 The idea behind having servers with all the same components is to ensure consistency and reliability. It simplifies server management and configuration, as administrators only need to manage one configuration that can be replicated across all servers. This reduces the likelihood of errors or inconsistencies that can occur when managing multiple configurations.
 
