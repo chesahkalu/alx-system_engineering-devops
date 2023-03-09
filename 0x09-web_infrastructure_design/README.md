@@ -157,6 +157,56 @@ You must be able to explain what the issues are with this infrastructure:
 ### THE DESIGN : :beginner:
 ![My Image](assets/2-secured_and_monitored_web_infrastructure.PNG)
 #### Specifics : :eight_pointed_black_star:
+The web infrastructure design is further leveled up with addition of other elements:
+
+- `**Firewalls**`: Firewalls allow, limit, and block network traffic based on preconfigured rules in the hardware or software, analyzing data packets that request entry to the network. This provides internal protection to a network. It’s customizable, allowing users some control over its function and protection features, such as being able to block access to certain websites on the network. The firewalls is integrated at both servers and load balancers.
+
+- `**HTTPS/SSL**` : HTTPS is a secured form of HTTP. Providing a secure and encrypted transmission of data between servers and user computers. Here , SSL (Secure Sockets Layer) protocol is used through an 'asymmetric' Public Key Infrastructure (PKI) system. An asymmetric system uses two 'keys' to encrypt communications, a 'public' key and a 'private' key. Anything encrypted with the public key can only be decrypted by the private key and vice-versa. When you request a HTTPS connection to a webpage, the website will initially send its SSL certificate to your browser. This certificate contains the public key needed to begin the secure session. Based on this initial exchange, your browser and the website then initiate the 'SSL handshake'. The SSL handshake involves the generation of shared secrets to establish a uniquely secure connection between yourself and the website.
+
+- Terminating SSL certificate at the load balancer is a Security issue because: When SSL is terminated at the load balancer, traffic between the load balancer and the application servers is unencrypted. This increases the risk of data breaches and exposes sensitive information to potential attackers.
+
+- `**Monitoring**` : A monitoring system collects health and performance data of servers, virtual machines, containers, databases, and other backend components in a tech stack. Engineers can use an infrastructure monitoring tool to visualize, analyze, and alert on metrics and understand whether a backend issue is impacting users.
+Here the Sumo Logic's integrated analytics platform seamlessly correlates system issues measured by: performance monitoring, the deep visibility provided by logging, user experience monitoring provided by tracing and transaction analytics, and security visibility with integrated security analytics.
+
+- `The monitoring tools collect data by` :
+1. Log-based monitoring : streaming event logs and data, also known as log files, which the server generates automatically. On the server, log files provide information about issues, user activity, and security events.
+
+2. SNMP-based monitoring: Simple Network Management Protocol (SNMP) is a standard protocol used to manage and monitor devices on a network. SNMP-based monitoring tools can query network devices and servers for data such as CPU usage, memory usage, and network traffic.
+
+3. Agent-based monitoring: In this method, an agent software is installed on the server being monitored, which collects and sends metrics to the monitoring tool. The agent software can collect system-level data such as CPU usage, memory usage, disk usage, and network traffic, as well as application-level data such as QPS, response time, and error rates.
+
+4. API-based monitoring: Some applications and servers provide APIs to access performance metrics. Monitoring tools can use these APIs to collect and monitor data such as QPS, response time, and error rates.
+
+- Monitoring web server `QPS (Queries Per Second)` is an important task for any web server administrator. Queries per second is a measure of the rate of traffic going through a particular server in relation to a network that serves a Web domain. 
+
+This measurement is important in assessing how support infrastructures handle changing amounts of Web traffic and whether systems are scalable enough to serve the changing needs of a user community as they grow. Assessing projects in terms of queries per second and other metrics serves the specific purpose of making sure that websites respond to users quickly and efficiently. These types of assessments and benchmarks are behind the idea that users can enter something into a website and get immediate updates. One major example is social media giant Facebook. Analysis of Facebook’s engineering efforts shows that the site can respond to a volume of well over 10 million queries per second, with response times measured in milliseconds.
+
+Monitoring QPS helps to ensure that the server is running optimally and that any potential issues can be identified and addressed quickly. This can be done using open source tools, cloud based solutions, log analysis tools, Traffic monitoring tools.
+
+- Having only one MYSQL server capable of accepting writes is an issue because :
+
+1. Single Point Of Failure : if the master goes down, the application cannot write to the database anymore. Hence it is
+good practice to configure some slave database to be able to do most of the master database functions.
+
+2. Scalability limitations: With only one server accepting writes, you may encounter performance issues as the number of writes to the database increases.
+
+3. High availability: If you need high availability for your application, having a single MySQL server accepting writes is not ideal. In the event of a failure, there is no automatic failover to a backup server
+
+
+
+- Having servers with all the same components(database, Web server, and application server)might be a problem because:
+
+1. Single point of failure: If all the servers have the same components, they can all fail simultaneously. This creates a single point of failure, which can cause significant downtime and data loss.
+
+2. Inefficient resource allocation: Different applications and services have different resource requirements. By having all the same components on each server, you may end up with over-provisioned resources for some applications and under-provisioned resources for others. This can lead to inefficient use of resources and higher costs.
+
+3. Limited scalability: As your application grows and requires more resources, having servers with all the same components can limit your ability to scale. You may need to add more servers with different configurations to meet your needs, which can be more challenging than adding identical servers.
+
+4. Maintenance overhead: Maintaining identical servers can be more challenging than maintaining servers with different configurations. You may need to update and patch the same components on multiple servers, which can be time-consuming and error-prone.
+
+To mitigate these problems, it's a good practice to have a mix of server configurations that can handle different types of workloads. This can help ensure redundancy, efficient resource allocation, scalability, and easier maintenance.
+
+
 
 ### [3-scale_up](3-scale_up)
 You must add to [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure):
