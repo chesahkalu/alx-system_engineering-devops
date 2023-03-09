@@ -154,6 +154,9 @@ You must be able to explain what the issues are with this infrastructure:
 * Why terminating SSL at the load balancer level is an issue
 * Why having only one MySQL server capable of accepting writes is an issue
 * Why having servers with all the same components (database, web server and application server) might be a problem
+### THE DESIGN : :beginner:
+![My Image](assets/2-secured_and_monitored_web_infrastructure.PNG)
+#### Specifics : :eight_pointed_black_star:
 
 ### [3-scale_up](3-scale_up)
 You must add to [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure):
