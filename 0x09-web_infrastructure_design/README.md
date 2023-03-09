@@ -137,7 +137,7 @@ The `difference` between the the primary and replica is that the primary is the 
 - `**Monitoring**`: There its no form of monitoring on the systems server or software to notify of any sort of malfunctions or overload of servers.
 
 
-### [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure)
+## [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure)
 On a whiteboard, design a three servers web infrastructure that host the website `www.foobar.com`, it must be secured, serve encrypted traffic and be monitored. <br />
 You must add to [1-distributed_web_infrastructure](1-distributed_web_infrastructure):
 * 3 firewalls
