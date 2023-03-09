@@ -54,25 +54,21 @@ You must be able to explain what the issues are with this infrastructure:
 ![My Image](assets/simple_web_stack.PNG)
 #### Specifics : :eight_pointed_black_star:
 - User inputs the `**domain name**` www.foobar.com  into the computer browser.
-
 `**The Domain name**`; www.Fobar.com, is a user friendly name used to link the IP address of the website.
 The IP address is a series of numbers which are hard to memorize. eg. 127.345.456.4
 The purpose of the domain name is to have a human user friendly representation of the website address.
 
 - For the users computer to map the correct IP address to the domain name, the `**DNS**` system is used.
-
 `**The Domain Name System(DNS)**` is a system that uses different process and resources to find the correct 
 IP address of the domain name being queried. In the DNS system,  www.foobar.com is a conical(alias) name record 
 and subdomain of the main root domain name; foobar.com .The root domain name has an A record of 8.8.8.8, which is the IP Address.
 Hence, the Cononical Name(name) www.foobar.com , points to the root domain name foobar.com which then points to the IP address 8.8.8.8.
 
 - The IP address 8.8.8.8 is the address of the `**server**`(Nginx) storing the data details of the website www.foobar.com.
-
 `**A server**` is a powerful computer, connected to the internet that provides different functions and services to the end users computers.
 In these case, the server 8.8.8.8 is storing the webpage data and other webpage details of www.foobaar.com which the user is requesting to visit.
 
 - The end user's computer brower using `**HTTP**` sends a request to the server for a response with the details of the www.foobar.com website.
-
 `**Hyper Text Transfer protocols(HTTP)**` is a software both on the users computer browser and the end server computer which determines and controls
 how the text files and other details of the webpage will be transferred between the two computers.
 
@@ -85,7 +81,6 @@ Here the application server can update, adjust, moderate, and install different 
 both end users of the website.
 
 - The application server would make use of a `**database**`
-
 `**A Database**` is a system that stores different forms of data. It allows the management, creation, updating, and retrieval of data. The Database also gives 
 structure to organization business information. With the Data base, a **code base** and the application server, data of both client user and organization user
 can be manipulated to create different forms of services.
