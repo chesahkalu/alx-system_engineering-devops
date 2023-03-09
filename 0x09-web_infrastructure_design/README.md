@@ -1,7 +1,7 @@
 # 0x09. Web infrastructure design
 
 ## About this projecrt:
-In this project I Learnt about :
+In this project we have Learnt about:
 - Networking Basics
 - DNS
 - Databases
@@ -19,7 +19,7 @@ In this project I Learnt about :
 - High Availabilty
 - Ports 
 
-At the end of this project I was able to explain, without the help of Google:
+At the end of this project we were able to explain, without the help of Google:
 - You must be able to draw a diagram covering the web stack you built with the sysadmin/devops track projects
 - You must be able to explain what each component is doing
 - You must be able to explain system redundancy
