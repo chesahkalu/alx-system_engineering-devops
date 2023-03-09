@@ -30,7 +30,7 @@ At the end of this project I was able to explain, without the help of Google:
 - The images are designs of a webserver infrastructure on different levels.
 - Also in each file are text explaining some specifics and issues about each desgigns.
 
-### [0-simple_web_stack](0-simple_web_stack)
+## [0-simple_web_stack](0-simple_web_stack)
 On a whiteboard, design a one server web infrastructure that hosts the website that is reachable via `www.foobar.com.` Start your explanation by having a user wanting to access your website. <br />
 You must use:
 * 1 physical server
@@ -50,6 +50,56 @@ You must be able to explain some specifics about this infrastructure:
 You must be able to explain what the issues are with this infrastructure:
 * SPOF
 * Downtime when maintenance needed (like deploying new code web server needs to be restarted) Cannot scale if too much incoming traffic
+### THE DESIGN : :beginner:
+![My Image](assetss/simple_web_stack.jpeg)
+#### Specifics : :eight_pointed_black_star:
+- User inputs the `**domain name**` www.foobar.com  into the computer browser.
+`**The Domain name**`; www.Fobar.com, is a user friendly name used to link the IP address of the website.
+The IP address is a series of numbers which are hard to memorize. eg. 127.345.456.4
+The purpose of the domain name is to have a human user friendly representation of the website address.
+
+- For the users computer to map the correct IP address to the domain name, the `**DNS**` system is used. 
+`**The Domain Name System(DNS)**` is a system that uses different process and resources to find the correct 
+IP address of the domain name being queried. In the DNS system,  www.foobar.com is a conical(alias) name record 
+and subdomain of the main root domain name; foobar.com .The root domain name has an A record of 8.8.8.8, which is the IP Address.
+Hence, the Cononical Name(name) www.foobar.com , points to the root domain name foobar.com which then points to the IP address 8.8.8.8.
+
+- The IP address 8.8.8.8 is the address of the `**server**`(Nginx) storing the data details of the website www.foobar.com.
+`**A server**` is a powerful computer, connected to the internet that provides different functions and services to the end users computers.
+In these case, the server 8.8.8.8 is storing the webpage data and other webpage details of www.foobaar.com which the user is requesting to visit.
+
+- The end user's computer brower using `**HTTP**` sends a request to the server for a response with the details of the www.foobar.com website.
+`**Hyper Text Transfer protocols(HTTP)**` is a software both on the users computer browser and the end server computer which determines and controls
+how the text files and other details of the webpage will be transferred between the two computers.
+
+- `**The Web Server**` provides a static experience of responding and sending back to the client user the pre-stored text and data files of the webpage.
+The files stored in HTML, CSS and JAVA script format will be sent back to end users computer browser and displayed as it was stored and designed.
+
+- `**An application server**`  is a software used to provide additional services such as a dynamic web service, where the end user can also upload data
+to the website while including so many other additional functions.
+Here the application server can update, adjust, moderate, and install different datas and services on the website and computer systems to create a dynamic usage for
+both end users of the website.
+
+- The application server would make use of a `**database**`
+`**A Database**` is a system that stores different forms of data. It allows the management, creation, updating, and retrieval of data. The Database also gives 
+structure to organization business information. With the Data base, a **code base** and the application server, data of both client user and organization user
+can be manipulated to create different forms of services.
+#### Design Issues and faults: :triangular_flag_on_post:
+- `**Single point of failure (SPOF)**`: Failure or malfunction of the server can lead to an entire failure of the system. To avoid this
+a second server will be needed as a redundancy.
+
+- `**Downtime**` : A single server can also cause downtime during maintenance, because users can’t access a server if it is offline during maintenance, restart, and update.
+
+- `**scalability**` : Also a single server can affect scalability and downtime during high traffic, this can be resolved by adding a second server to share the traffic loads.
+
+
+
+
+
+
+
+
+
 
 ### [1-distributed_web_infrastructure](1-distributed_web_infrastructure)
 On a whiteboard, design a three servers web infrastructure that host the website `www.foobar.com`. <br />
@@ -96,3 +146,4 @@ You must add to [2-secured_and_monitored_web_infrastructure](2-secured_and_monit
 * Split components (web server, application server, database) with their own server
 You must be able to explain some specifics about this infrastructure:
 * For every additional element, why you are adding it
+
