@@ -1,0 +1,22 @@
+Diagram Link : https://drive.google.com/file/d/1URuQY0MIEG8CQ1xRLxIh9W56ecHYerRL/view?usp=share_link
+
+#### Specifics : 
+The web infrastructure design is leveled up with an addition of further elements:
+
+- `**Server 2**` : The server 2 comes in to enable a distribution of traffic in case of high traffic loads. This shares the traffic between server 1 and server 2, hence preventing a downtime failure of server one. Both servers will also serve as a back up during maintenance of either servers. This solves the SPOF challenge.
+
+- `**Load Balancer**` : The load balancer handles the operation of how the two servers function and service the client. The load balancer using some algorithms, will distribute the work-load of each server to reduce the amount of load on an individual server, which in turn increases the reliability, efficiency and availability of the system.
+
+- `**Active-Active setup**` : These Load balancer uses an Active-Active setup, which is a setup that distributes the work load across both active servers.  Another setup would be an Active-Passive setup which loads only one server, and leaves the other on standby, activating it on failure of the loaded server.
+
+- `**ROUND ROBIN DNS**` : To enable the Active-Active setup, the ROUND ROBIN DNS algorithm is used, these algorithm handles the distribution of the loads by sequentially distributing the loads between the servers one after the other. Other algorithms like the LEAST CONNECTION FIRST SCHEDULING and the WEIGHTED SCHEDULING can be used.
+
+- `**A Data-Base primary replica**` is introduced in this design. This element enables data from one database server (the master) to be replicated to one or more other database servers (the slaves), spreading the load among multiple slaves to improve performance, establish backups, and increase scalability of enormous queries. 
+The `difference` between the the primary and replica is that the primary is the source data for the slave replica. Different algorithms are introduced to monitor differences between the data contents and establish updates of the slave from the master.
+
+#### Design Issues and faults:
+- `**SPOF**` is introduced at the LOAD BALANCER element, in an event where the load balancer fails, client and server won’t be able to communicate leading to a failure of the system.
+
+- `**ssecurity**`: No `firewall` to monitor and limit if necessary any harmful types and sources of data being transmitted through the network. Also the HTTP protocol transmitting the website is not `secure`, meaning the text data being transmitted between the network, isn’t encrypted and can easily be accessed by an intruder.
+
+- `**Monitoring**`: There its no form of monitoring on the systems server or software to notify of any sort of malfunctions or overload of servers.
