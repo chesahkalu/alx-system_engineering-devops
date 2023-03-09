@@ -193,25 +193,10 @@ good practice to configure some slave database to be able to do most of the mast
 
 2. Scalability limitations: With only one server accepting writes, you may encounter performance issues as the number of writes to the database increases.
 
-3. High availability: If you need high availability for your application, having a single MySQL server accepting writes is not ideal. In the event of a failure, there is no automatic failover to a backup server
+3. High availability: If you need high availability for your application, having a single MySQL server accepting writes is not ideal. In the event of a failure, there is no automatic failover to a backup server.
 
 
-
-- Having servers with all the same components(database, Web server, and application server)might be a problem because:
-
-1. Single point of failure: If all the servers have the same components, they can all fail simultaneously. This creates a single point of failure, which can cause significant downtime and data loss.
-
-2. Inefficient resource allocation: Different applications and services have different resource requirements. By having all the same components on each server, you may end up with over-provisioned resources for some applications and under-provisioned resources for others. This can lead to inefficient use of resources and higher costs.
-
-3. Limited scalability: As your application grows and requires more resources, having servers with all the same components can limit your ability to scale. You may need to add more servers with different configurations to meet your needs, which can be more challenging than adding identical servers.
-
-4. Maintenance overhead: Maintaining identical servers can be more challenging than maintaining servers with different configurations. You may need to update and patch the same components on multiple servers, which can be time-consuming and error-prone.
-
-To mitigate these problems, it's a good practice to have a mix of server configurations that can handle different types of workloads. This can help ensure redundancy, efficient resource allocation, scalability, and easier maintenance.
-
-
-
-### [3-scale_up](3-scale_up)
+## [3-scale_up](3-scale_up)
 You must add to [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure):
 * 1 physical server
 * 1 load-balancer (HAproxy) configured as cluster with the other one
@@ -223,3 +208,15 @@ You must be able to explain some specifics about this infrastructure:
 #### Specifics : :eight_pointed_black_star:
 The web infrastructure design is further leveled up with addition of other elements:
 
+- `Server 3` : The addition of another server improves the reliability of the infras-structure since more traffic can be handled and there is more redundancy in case of device failure.
+
+- `Load Balancer 2` :  Another load balancer is added and configured as a cluster. This eleminates SPOF on the load balancer functionality, enabling high availability in
+the case one fails.
+
+* NOTE : Having servers with all the same components means that each server in the cluster has the same hardware and software configuration. For example, if you have a cluster of web servers, each web server would have the same hardware specifications such as CPU, RAM, and storage capacity, as well as the same software configuration, including the operating system, web server software, and any necessary libraries or dependencies.
+
+The idea behind having servers with all the same components is to ensure consistency and reliability. It simplifies server management and configuration, as administrators only need to manage one configuration that can be replicated across all servers. This reduces the likelihood of errors or inconsistencies that can occur when managing multiple configurations.
+
+Having servers with all the same components can also make it easier to scale out or horizontally. If you need to add more capacity to your infrastructure, you can simply add another server with the same configuration as the existing servers, and it will seamlessly integrate with the cluster.
+
+However, having servers with all the same components also has some drawbacks. If there is a hardware or software issue that affects one server in the cluster, it can potentially affect all the other servers with the same configuration. Additionally, having all the servers with the same components can limit flexibility, as you may not be able to easily switch to different hardware or software configurations if needed.
