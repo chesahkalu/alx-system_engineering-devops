@@ -51,7 +51,7 @@ You must be able to explain what the issues are with this infrastructure:
 * SPOF
 * Downtime when maintenance needed (like deploying new code web server needs to be restarted) Cannot scale if too much incoming traffic
 ### THE DESIGN : :beginner:
-![My Image](assetss/simple_web_stack.jpeg)
+![My Image](assets/simple_web_stack.jpeg)
 #### Specifics : :eight_pointed_black_star:
 - User inputs the `**domain name**` www.foobar.com  into the computer browser.
 `**The Domain name**`; www.Fobar.com, is a user friendly name used to link the IP address of the website.
