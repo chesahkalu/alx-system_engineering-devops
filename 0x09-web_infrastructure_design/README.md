@@ -177,11 +177,14 @@ Here the Sumo Logic's integrated analytics platform seamlessly correlates syste
 
 4. API-based monitoring: Some applications and servers provide APIs to access performance metrics. Monitoring tools can use these APIs to collect and monitor data such as QPS, response time, and error rates.
 
+
 - Monitoring web server `QPS (Queries Per Second)` is an important task for any web server administrator. Queries per second is a measure of the rate of traffic going through a particular server in relation to a network that serves a Web domain. 
 
 This measurement is important in assessing how support infrastructures handle changing amounts of Web traffic and whether systems are scalable enough to serve the changing needs of a user community as they grow. Assessing projects in terms of queries per second and other metrics serves the specific purpose of making sure that websites respond to users quickly and efficiently. These types of assessments and benchmarks are behind the idea that users can enter something into a website and get immediate updates. One major example is social media giant Facebook. Analysis of Facebook’s engineering efforts shows that the site can respond to a volume of well over 10 million queries per second, with response times measured in milliseconds.
 
 Monitoring QPS helps to ensure that the server is running optimally and that any potential issues can be identified and addressed quickly. This can be done using open source tools, cloud based solutions, log analysis tools, Traffic monitoring tools.
+
+#### Design Issues and faults: :triangular_flag_on_post:
 
 - Having only one MYSQL server capable of accepting writes is an issue because :
 
@@ -215,4 +218,8 @@ You must add to [2-secured_and_monitored_web_infrastructure](2-secured_and_monit
 * Split components (web server, application server, database) with their own server
 You must be able to explain some specifics about this infrastructure:
 * For every additional element, why you are adding it
+### THE DESIGN : :beginner:
+![My Image](assets/3-scale_up.PNG)
+#### Specifics : :eight_pointed_black_star:
+The web infrastructure design is further leveled up with addition of other elements:
 
