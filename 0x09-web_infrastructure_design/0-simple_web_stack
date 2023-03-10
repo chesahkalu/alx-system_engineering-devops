@@ -9,7 +9,7 @@ The purpose of the domain name is to have a human user friendly representation o
 
 - For the users computer to map the correct IP address to the domain name, the `**DNS**` system is used. 
 `**The Domain Name System(DNS)**` is a system that uses different process and resources to find the correct 
-IP address of the domain name being queried. In the DNS system,  www.foobar.com is a conical(alias) name record 
+IP address of the domain name being queried. In the DNS system,  www.foobar.com is a cononical(alias) name record 
 and subdomain of the main root domain name; foobar.com .The root domain name has an A record of 8.8.8.8, which is the IP Address.
 Hence, the Cononical Name(name) www.foobar.com , points to the root domain name foobar.com which then points to the IP address 8.8.8.8.
 
