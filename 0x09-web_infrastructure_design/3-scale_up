@@ -3,7 +3,7 @@ Diagram Link : https://drive.google.com/file/d/1CXEwBI7ZIjRLNmWbT7saFLDGax1rQ-YI
 #### Specifics : 
 The web infrastructure design is further leveled up with addition of other elements:
 
-- `Server 3` : The addition of another server improves the reliability of the infras-structure since more traffic can be handled and there is more redundancy in case of device failure.
+- `Server 3` : The addition of another server improves the reliability of the infrastructure since more traffic can be handled and there is more redundancy in case of device failure.
 
 - `Load Balancer 2` :  Another load balancer is added and configured as a cluster. This eleminates SPOF on the load balancer functionality, enabling high availability in
 the case one fails.

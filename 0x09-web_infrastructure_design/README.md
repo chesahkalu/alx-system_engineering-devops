@@ -60,7 +60,7 @@ The purpose of the domain name is to have a human user friendly representation o
 
 - For the users computer to map the correct IP address to the domain name, the `**DNS**` system is used.
 `**The Domain Name System(DNS)**` is a system that uses different process and resources to find the correct 
-IP address of the domain name being queried. In the DNS system,  www.foobar.com is a conical(alias) name record 
+IP address of the domain name being queried. In the DNS system,  www.foobar.com is a cononical(alias) name record 
 and subdomain of the main root domain name; foobar.com .The root domain name has an A record of 8.8.8.8, which is the IP Address.
 Hence, the Cononical Name(name) www.foobar.com , points to the root domain name foobar.com which then points to the IP address 8.8.8.8.
 
@@ -118,11 +118,11 @@ You must be able to explain what the issues are with this infrastructure:
 #### Specifics : :eight_pointed_black_star:
 The web infrastructure design is leveled up with an addition of further elements:
 
-- `**Server 2**` : The server 2 comes in to enable a distribution of traffic in case of high traffic loads. This shares the traffic between server 1 and server 2, hence preventing a downtime failure of server one. Both servers will also serve as a back up during maintenance of either servers. This solves the SPOF challenge.
+- `**Server 2**` : The server 2 comes in to enable a distribution of traffic in case of high traffic loads. This shares the traffic between server 1 and server 2, hence preventing a downtime failure of server one. Both servers will also serve as a back up during maintenance of either servers. This solves the SPOF challenge and increases high availability.
 
 - `**Load Balancer**` : The load balancer handles the operation of how the two servers function and service the client. The load balancer using some algorithms, will distribute the work-load of each server to reduce the amount of load on an individual server, which in turn increases the reliability, efficiency and availability of the system.
 
-- `**Active-Active setup**` : These Load balancer uses an Active-Active setup, which is a setup that distributes the work load across both active servers.  Another setup would be an Active-Passive setup which loads only one server, and leaves the other on standby, activating it on failure of the loaded server.
+- `**Active-Active setup**` : This Load balancer uses an Active-Active setup, which is a setup that distributes the work load across both active servers.  Another setup would be an Active-Passive setup which loads only one server, and leaves the other on standby, activating it on failure of the loaded server.
 
 - `**ROUND ROBIN DNS**` : To enable the Active-Active setup, the ROUND ROBIN DNS algorithm is used, these algorithm handles the distribution of the loads by sequentially distributing the loads between the servers one after the other. Other algorithms like the LEAST CONNECTION FIRST SCHEDULING and the WEIGHTED SCHEDULING can be used.
 
@@ -208,7 +208,7 @@ You must be able to explain some specifics about this infrastructure:
 #### Specifics : :eight_pointed_black_star:
 The web infrastructure design is further leveled up with addition of other elements:
 
-- `Server 3` : The addition of another server improves the reliability of the infras-structure since more traffic can be handled and there is more redundancy in case of device failure.
+- `Server 3` : The addition of another server improves the reliability of the infrastructure since more traffic can be handled and there is more redundancy in case of device failure.
 
 - `Load Balancer 2` :  Another load balancer is added and configured as a cluster. This eleminates SPOF on the load balancer functionality, enabling high availability in
 the case one fails.
@@ -222,3 +222,9 @@ The idea behind having servers with all the same components is to ensure consist
 Having servers with all the same components can also make it easier to scale out or horizontally. If you need to add more capacity to your infrastructure, you can simply add another server with the same configuration as the existing servers, and it will seamlessly integrate with the cluster.
 
 However, having servers with all the same components also has some drawbacks. If there is a hardware or software issue that affects one server in the cluster, it can potentially affect all the other servers with the same configuration. Additionally, having all the servers with the same components can limit flexibility, as you may not be able to easily switch to different hardware or software configurations if needed.
+
+Having servers with all the same components (database, web server and application server) might be a problem because their consumption will not grow the same way between each of them (we might want to have more database servers than application servers for instance).
+
+Having servers with all the same components (database, web server and application server) might be a problem because when there is maintenance performed on a server for a specific component, it will affect other components that are on it
+
+To fix this, add servers containing a single component inside them (such as a web server, application server or database)
