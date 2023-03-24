@@ -4,9 +4,9 @@
 In this project i learnt and practiced:
 - configuration management with puppet.
 - Writing puppet manifest files to create a file, install a
-package, and execute a command.
+  package, and execute a command.
 
-## Task files description;
+## Task files description:
 
 * [0-create_a_file.pp](./0-create_a_file.pp): Puppet manifest file that
   creates a file `holberton` in the `/tmp` directory.
