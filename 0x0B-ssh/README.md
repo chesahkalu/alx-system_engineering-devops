@@ -25,3 +25,7 @@ server ussing ~/.ssh/school
 - Here different options of config can be changed. 
 	- # PasswordAuthentication no
 	- # IdentityFile ~/.ssh/school
+
+* [100-puupet_ssh_config.pp](./100-puupet_ssh_config.pp): Puppet manifest that configures changes to our configuration file
+- Your SSH client configuration must be configured to use the private key ~/.ssh/school
+- Your SSH client configuration must be configured to refuse to authenticate using a password
