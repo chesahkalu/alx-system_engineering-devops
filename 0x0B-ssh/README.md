@@ -12,9 +12,12 @@
 ## Tasks :page_with_curl:
 
 * [0-use_a_private_key](./0-use_a_private_key): Bash script that uses `ssh` to connect to my
-server.
+server ussing ~/.ssh/school
 
 * [1-create_ssh_key_pair](./1-create_ssh_key_pair): Bash script that creates an RSA key pair.
+	- Name of the created private key must be school
+	- Number of bits in the created key to be created 4096
+	- The created key must be protected by the passphrase betty
 
 * [2-ssh_config](./2-ssh_config): SSH configuration file configured to use the private key
 `~/.sshschool` and to refuse authentication using a password.
