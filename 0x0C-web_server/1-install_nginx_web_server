@@ -4,8 +4,8 @@
 #   Returns a page containing "Hello World" when queried
 #   at the root with a curl GET request.
 
-sudo apt-get update -y && sudo apt-get upgrade -y
-sudo apt-get install -y nginx
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
-sudo ufw allow 'Nginx HTTP'
-sudo service nginx restart
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+service nginx start
