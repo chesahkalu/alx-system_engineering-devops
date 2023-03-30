@@ -6,6 +6,7 @@
 
 apt-get -y update
 apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+# is used to allow incoming connections to the Nginx HTTP server through the firewall through port 80. using the ufw (Uncomplicated Firewall) command-line tool.
+sudo ufw allow 'Nginx HTTP'
+echo 'Hello World!' | /var/www/html/index.nginx-debian.html
 service nginx start
