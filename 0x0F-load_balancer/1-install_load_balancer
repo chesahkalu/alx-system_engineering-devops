@@ -13,8 +13,8 @@ frontend http-in
         default_backend web_servers
 backend web_servers
         balance roundrobin
-        server 151957-web-01 52.72.12.225:80
-        server 151957-web-02 107.23.106.187:80
+        server 151957-web-01 52.72.12.225:80 check
+        server 151957-web-02 107.23.106.187:80 check
 ' >> /etc/haproxy/haproxy.cfg
 
 # Restart HAproxy service
