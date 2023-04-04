@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+
+apt-get -y update
+
+apt-get -y install nginx
+
+# is used to allow incoming connections to the Nginx HTTP server through the firewall through port 80. using the ufw (Uncomplicated Firewall) command-line tool.
+sudo ufw allow 'Nginx HTTP'
+
+# change the owner of the /var/www directory to the current user recursively. To allow modification of the files in the directory.
+sudo chown -R $USER /var/www
+
+# change the owner of the /var/www/html directory to the current user recursively
+sudo chown -R $USER /etc/nginx/sites-available/default
+
+# set up a page containing "Hello World" when queried at the root with a curl GET request.
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+
+# set up a content for error 404 html page.
+echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
+
+service nginx start
+
+# Setting up /redirect_me to a permanent redirect to https://twitter.com/ai_optimizer
+sudo sed -i '24i\rewrite ^/redirect_me https://twitter.com/ai_optimizer permanent;' /etc/nginx/sites-available/default
+
+# Set up error 404 page location
+sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+
+# Setting up custom HTTP header called 'X-Served-By' to all responses, containing the hostname of the server that served the request.
+sudo sed -i '26i\add_header X-Served-By \$hostname;' /etc/nginx/sites-available/default
+
+service nginx restart
