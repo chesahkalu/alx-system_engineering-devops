@@ -22,7 +22,7 @@ echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 # set up a content for error 404 html page.
 echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
 
-service nginx start
+sudo service nginx start
 
 # Setting up /redirect_me to a permanent redirect to https://twitter.com/ai_optimizer
 sudo sed -i '24i\rewrite ^/redirect_me https://twitter.com/ai_optimizer permanent;' /etc/nginx/sites-available/default
@@ -33,4 +33,4 @@ sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/de
 # Setting up custom HTTP header called 'X-Served-By' to all responses, containing the hostname of the server that served the request.
 sudo sed -i '49i\\tadd_header X-Served-By \$hostname;' /etc/nginx/sites-available/default
 
-service nginx restart
+sudo service nginx restart
