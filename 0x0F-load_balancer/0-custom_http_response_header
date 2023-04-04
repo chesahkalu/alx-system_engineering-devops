@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-
+# configure web-02 to be identical to web-01
+# The name of the custom HTTP header must be X-Served-By
+# The value of the custom HTTP header must be the hostname of the server Nginx is running on
 
 apt-get -y update
 
@@ -12,7 +14,7 @@ sudo ufw allow 'Nginx HTTP'
 sudo chown -R $USER /var/www
 
 # change the owner of the /var/www/html directory to the current user recursively
-sudo chown -R $USER /etc/nginx/sites-available/default
+sudo chown -R $USER /etc/nginx/sites-available/defaul/etc/nginx/sites-available/defaultt
 
 # set up a page containing "Hello World" when queried at the root with a curl GET request.
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
@@ -29,6 +31,6 @@ sudo sed -i '24i\rewrite ^/redirect_me https://twitter.com/ai_optimizer permanen
 sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/default
 
 # Setting up custom HTTP header called 'X-Served-By' to all responses, containing the hostname of the server that served the request.
-sudo sed -i '26i\add_header X-Served-By \$hostname;' /etc/nginx/sites-available/default
+sudo sed -i '49i\\tadd_header X-Served-By \$hostname;' /etc/nginx/sites-available/default
 
 service nginx restart
