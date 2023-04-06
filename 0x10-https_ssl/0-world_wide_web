@@ -2,28 +2,18 @@
 # Script that will display information about subdomains,given a domain and a subdomain
 # Usage: ./0-world_wide_web example.com www
 
-domain_info () {
-    # All subdomains of the domain
-    subdomains=("www"  "lb-01" "web-01" "web-02")
-
-    # check if a subdomain is given as the second argument($2)
-    if [ -z "$2" ]; then
-    # if ($2) is empty, then loop through all subdomains in subdomain array
-	for i in "${subdomains[@]}"; do
-	    dig "$i.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, DOMAIN, "."); print "The subdomain " DOMAIN[1] " is a " $4 " record and points to " $5}'
-        # dig - query DNS servers for information
-        # $i.$1 - the subdomain.domain (e.g. www.example.com)
-        # grep -A1 finds 'ANSWER SECTION:' - print 1 line after "ANSWER SECTION:" which contains the information we need
-        # tail -n1 - further isolate to print the last line
-        # awk - split the first field of the line($0) into an array named DOMAIN, using "." as the delimiter. To access the first element of the array, as the subdomain.
-        # print "The subdomain " DOMAIN[1] " is a " $4 " record and points to " $5. $4 is the type of record, $5 is the IP address
-	done
-
-    # if ($2) is not empty, then print the information about the given subdomain($2)
-    else
-	dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, DOMAIN, "."); print "The subdomain " DOMAIN[1] " is a " $4 " record and points to " $5}'
-    fi
+DNS_info () {
+    ANSWER=$(dig $2 | grep -A1 'ANSWER SECTION:' | awk 'NR==2 {print $0}')
+    echo "The subdomain $1 is a $(echo $ANSWER | awk '{print $4}') record and points to $(echo $ANSWER | awk '{print $5}')"
 }
 
-# call the function domain_info with the first argument($1) as the domain and the second argument($2) as the subdomain
-domain_info "$1" "$2"
+if [[ $# == 1 ]]; then
+    subdomains=('www' 'lb-01' 'web-01' 'web-02')
+    for i in "${subdomains[@]}"; do
+	CONCAT="$i.$1"
+	DNS_info $i $CONCAT
+    done
+else
+    CONCAT="$2.$1"
+    DNS_info $2 $CONCAT
+fi
