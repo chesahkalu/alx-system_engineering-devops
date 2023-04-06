@@ -2,7 +2,7 @@
 # configures a new HAproxy as a load balancer
 
 # Install HAproxy on a server
-apt-get -y update
+sudo apt-get -y update
 sudo apt-get install -y haproxy
 
 # Configure HAProxy
