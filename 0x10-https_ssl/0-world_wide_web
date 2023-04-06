@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Shell script to desscribe informations about given subdomain, or all subdomains of a given domain.
+
+# All subdomains of the domain
+subdomains=("www"  "lb-01" "web-01" "web-02")
+
+domain_info(){
+    # check if a subdomain is given in as the second argument($2)
+    if [ -z "$2" ]; then
+    # if ($2) is empty, then loop through all subdomains in subdomain array
+	for i in "${subdomains[@]}"; do
+	    dig "$i.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, DOMAIN, "."); print "The subdomain " DOMAIN[1] " is a " $4 " record and points to " $5}'
+        # dig - query DNS servers for information
+        # $i.$1 - the subdomain.domain (e.g. www.example.com)
+        # grep -A1 finds 'ANSWER SECTION:' - print 1 line after "ANSWER SECTION:" which contains the information we need
+        # tail -n1 - further isolate to print the last line
+        # awk - split the first field of the line($0) into an array named DOMAIN, using "." as the delimiter. To access the first element of the array, as the subdomain.
+        # print "The subdomain " DOMAIN[1] " is a " $4 " record and points to " $5. $4 is the type of record, $5 is the IP address
+	done
+
+    # if ($2) is not empty, then print the information about the given subdomain($2)
+    else
+	dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, DOMAIN, "."); print "The subdomain " DOMAIN[1] " is a " $4 " record and points to " $5}'
+    fi
+}
+
+# run the domain_info function with the first argument($1) as the domain and the second argument($2) as the subdomain
+domain_info "$1" "$2"
