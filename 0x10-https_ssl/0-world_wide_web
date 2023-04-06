@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Script that will display information about subdomains
+# Script that will display information about subdomains,given a domain and a subdomain
+# Usage: ./0-world_wide_web example.com www
 
-subdomains=("www"  "lb-01" "web-01" "web-02")
-# All subdomains of the domain
+domain_info () {
+    # All subdomains of the domain
+    subdomains=("www"  "lb-01" "web-01" "web-02")
 
-domain_info() {
     # check if a subdomain is given as the second argument($2)
     if [ -z "$2" ]; then
     # if ($2) is empty, then loop through all subdomains in subdomain array
