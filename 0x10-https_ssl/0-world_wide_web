@@ -25,3 +25,6 @@ domain_info() {
 	dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, DOMAIN, "."); print "The subdomain " DOMAIN[1] " is a " $4 " record and points to " $5}'
     fi
 }
+
+# call the function domain_info with the first argument($1) as the domain and the second argument($2) as the subdomain
+domain_info "$1" "$2"
