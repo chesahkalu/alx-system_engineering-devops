@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Shell script to desscribe informations about given subdomain,or all subdomains of a given domain
-# Usage: ./0-world_wide_web example.com www
+# Script that will display information about subdomains
 
 subdomains=("www"  "lb-01" "web-01" "web-02")
 # All subdomains of the domain
