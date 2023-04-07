@@ -4,6 +4,8 @@ In this project i learnt and practiced:
 - What is HTTPS SSL 2 main roles
 - What is the purpose encrypting traffic
 - What SSL termination means
+- setting up a SSL certificate and Haproxy SSL termination on a web server using `certbot`
+- Setting up a `www` subdomain and configuring HAproxy to accept traffic to this subdomain and redirect it to the `web-01` and `web-02` servers.
 
 ## Task files description:
 
@@ -17,7 +19,4 @@ In this project i learnt and practiced:
 * [2-haproxy_ssl_termination](./2-haproxy_ssl_termination): HAproxy
   configuration file that accepts encrypted SSL traffic for the subdomain using `certbot`
   `www.` on TCP port 443.
-   * sudo apt-get update
-   * sudo apt-get install certbot
-   * sudo certbot certonly --standalone -d www.example.com
-   * sudo cat privkey.pem | sudo tee -a fullchain.pem #
+
