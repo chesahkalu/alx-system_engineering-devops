@@ -20,3 +20,5 @@ In this project i learnt and practiced:
   configuration file that accepts encrypted SSL traffic for the subdomain using `certbot`
   `www.` on TCP port 443.
 
+* [3-redirect_http_to_https](./3-redirect_http_to_https): HAproxy
+  configuration file that redirects HTTP traffic to HTTPS.
