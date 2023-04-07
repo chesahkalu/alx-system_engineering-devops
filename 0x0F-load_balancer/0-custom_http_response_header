@@ -3,9 +3,9 @@
 # The name of the custom HTTP header must be X-Served-By
 # The value of the custom HTTP header must be the hostname of the server Nginx is running on
 
-apt-get -y update
+sudo apt-get -y update
 
-apt-get -y install nginx
+sudo apt-get -y install nginx
 
 # is used to allow incoming connections to the Nginx HTTP server through the firewall through port 80. using the ufw (Uncomplicated Firewall) command-line tool.
 sudo ufw allow 'Nginx HTTP'
@@ -13,8 +13,11 @@ sudo ufw allow 'Nginx HTTP'
 # change the owner of the /var/www directory to the current user recursively. To allow modification of the files in the directory.
 sudo chown -R $USER /var/www
 
-# change the owner of the /var/www/html directory to the current user recursively
-sudo chown -R $USER /etc/nginx/sites-available/defaul/etc/nginx/sites-available/defaultt
+# change the owner of the /etc/nginx/sites-available/defaul/etc/nginx/sites-available/default,to enable modification of the config file.
+sudo chown -R $USER /etc/nginx/sites-available/default
+
+# Making a backup of the default file, in case something goes wrong
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 
 # set up a page containing "Hello World" when queried at the root with a curl GET request.
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html

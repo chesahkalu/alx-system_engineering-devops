@@ -33,18 +33,17 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend http-in
+frontend www-http
         bind *:80
-        mode http
         http-request set-header X-Forwarded-Proto http
-        default_backend web_servers
-frontend www-https-in
-        bind   *:443 ssl crt /etc/letsencrypt/live/www.chesah.tech/fullchain.pem
+        default_backend www-backend
+
+frontend www-https
+        bind   *:443 ssl crt /etc/letsencrypt/live/www.chesah.tech-0001/fullchain.pem
         http-request set-header X-Forwarded-Proto https
-        acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
-        use_backend letsencrypt-backend if letsencrypt-acl
-        default_backend web_servers
-backend web_servers
+        default_backend www-backend
+
+backend www-backend
         balance roundrobin
         server 151957-web-01 52.72.12.225:80 check
-        server 151957-web-02 107.23.106.187:80 check
+        server 151957-web-02 100.24.205.73:80 check

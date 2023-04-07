@@ -10,9 +10,14 @@ apt-get -y install nginx
 # is used to allow incoming connections to the Nginx HTTP server through the firewall through port 80. using the ufw (Uncomplicated Firewall) command-line tool.
 sudo ufw allow 'Nginx HTTP'
 
+# change the owner of the /var/www directory to the current user recursively. To allow modification of the files in the directory.
+sudo chown -R $USER /var/www
+
+# set up a page containing "Hello World" when queried at the root with a curl GET request.
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 
-service nginx start
+# change the owner of the /etc/nginx/sites-available/defaul/etc/nginx/sites-available/default,to enable modification of the config file.
+sudo chown -R $USER /etc/nginx/sites-available/defaul
 
 # Making a backup of the default file, in case something goes wrong
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
