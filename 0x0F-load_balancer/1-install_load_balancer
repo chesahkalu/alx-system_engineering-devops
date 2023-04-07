@@ -10,7 +10,7 @@ echo '
 frontend http-in
         bind *:80
         mode http
-        default_backend web_servers
+        default_backend www-backend
 backend web_servers
         balance roundrobin
         server 151957-web-01 52.72.12.225:80 check
