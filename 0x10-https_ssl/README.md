@@ -4,9 +4,20 @@ In this project i learnt and practiced:
 - What is HTTPS SSL 2 main roles
 - What is the purpose encrypting traffic
 - What SSL termination means
-* [1-world_wide_web](./1-world_wide_web): Bash script that displays
+
+## Task files description:
+
+* [0-world_wide_web](./0-world_wide_web): Bash script that displays
   information about subdomains on my configured servers.
   * Usage: `./1-world_wide_web <domain> <subdomain>`
   * Output: `The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]`
   * If no `subdomain` parameter is passed, displays information about the
   subdomains `www`, `lb-01`, `web-01` and `web-02`, in that order.
+
+* [2-haproxy_ssl_termination](./2-haproxy_ssl_termination): HAproxy
+  configuration file that accepts encrypted SSL traffic for the subdomain using `certbot`
+  `www.` on TCP port 443.
+   * sudo apt-get update
+   * sudo apt-get install certbot
+   * sudo certbot certonly --standalone -d www.example.com
+   * sudo cat privkey.pem | sudo tee -a fullchain.pem #

@@ -1,3 +1,11 @@
+#sudo apt-get update
+#sudo apt-get install certbot
+#sudo certbot certonly --standalone -d www.example.com
+#sudo cat /path/privkey.pem | sudo tee -a /path/fullchain.pem (to append privkey.pem to fullchain.pem cert)
+#update /etc/haproxy/haproxy.cfg  : set the bind *:443 ssl crt /path/fullchain.pem
+#sudo service haproxy restart
+
+
 global
         log /dev/log    local0
         log /dev/log    local1 notice
