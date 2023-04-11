@@ -1,4 +1,10 @@
 # ssh config file
+# vi /etc/ssh/ssh_config - to edit the ssh config file
+
 Host *
       PasswordAuthentication no
       IdentifyFile ~/.ssh/school
+      
+# Try - ssh ubuntu@ip_address
+# if Passphrase is set for privkey ssh, password will be used to login
+#-    ssh-keygen -p -f ~/.ssh/school   # to change the passphrase to nothing

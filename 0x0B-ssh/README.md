@@ -20,12 +20,14 @@ server ussing ~/.ssh/school
 	- The created key must be protected by the passphrase betty
 
 * [2-ssh_config](./2-ssh_config): SSH configuration file configured to use the private key
-`~/.sshschool` and to refuse authentication using a password.
+`~/.ssh/school` and to refuse authentication using a password.
 - The ssh config file is located at '/etc/ssh/ssh_config' ,
 - Here different options of config can be changed. 
-	- # PasswordAuthentication no
-	- # IdentityFile ~/.ssh/school
+	-   PasswordAuthentication no
+	-   IdentityFile ~/.ssh/school
 
 * [100-puupet_ssh_config.pp](./100-puupet_ssh_config.pp): Puppet manifest that configures changes to our configuration file
 - Your SSH client configuration must be configured to use the private key ~/.ssh/school
 - Your SSH client configuration must be configured to refuse to authenticate using a password
+
+

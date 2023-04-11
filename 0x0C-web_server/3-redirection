@@ -17,7 +17,7 @@ sudo chown -R $USER /var/www
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 
 # change the owner of the /etc/nginx/sites-available/defaul/etc/nginx/sites-available/default,to enable modification of the config file.
-sudo chown -R $USER /etc/nginx/sites-available/defaul
+sudo chown -R $USER /etc/nginx/sites-available/default
 
 # Making a backup of the default file, in case something goes wrong
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
