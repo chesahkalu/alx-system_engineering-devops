@@ -6,3 +6,12 @@ A way to easily assess this is to simply ask an engineer to explain how a softwa
 In this project, I was asked to explain what happens when you type `google.com` in your browser and press `Enter`.
 I wrote a blog post answering this classic question - explaining how different components of a networking stack
 work together to render a web page. I also put together a diagram to visualize the networking process.
+In my explanation, I covered the following concepts:
+- DNS request
+- TCP/IP
+- Firewall
+- HTTPS/SSL
+- Load-balancer
+- Web server
+- Application server
+- Database
