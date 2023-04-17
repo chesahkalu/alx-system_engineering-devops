@@ -8,9 +8,6 @@ sudo apt-get update
 # Install ufw
 sudo apt-get install ufw
 
-# Configure ufw to enable IPv6 support
-sudo sed -i 's/IPV6=.*/IPV6=yes/' /etc/default/ufw
-
 # Enables UFW and makes it start automatically at boot time.
 sudo ufw enable
 
