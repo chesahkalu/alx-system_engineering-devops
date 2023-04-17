@@ -1,3 +1,16 @@
+#+ vi /etc/ufw/before.rules
+#+ chown -R $USER /etc/ufw/before.rules (if permission denied)
+#+ ## This is added to allow port 80 to forward to 8080
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+COMMIT
+# end of added section
+
+# Below is the content of the file /etc/ufw/before.rules config file
+
+
+
 #
 # rules.before
 #
@@ -8,9 +21,12 @@
 #   ufw-before-forward
 #
 
+## This is added to allow port 80 to forward to 8080
 *nat
 :PREROUTING ACCEPT [0:0]
 -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+COMMIT
+# end of added section
 
 # Don't delete these required lines, otherwise there will be errors
 *filter
