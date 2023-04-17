@@ -24,5 +24,9 @@ the host machine.
 to your server via SSH, and we will not be able to recover it. When you install UFW, port 22 is blocked by default, so you should unblock it immediately 
 before logging out of your server.
 
-## Tasks files description: :books: 
+## Tasks files description: :books:
+
+* [0-block_all_incoming_traffic_but](./0-block_all_incoming_traffic_but): Bash
+  script that installs a `ufw` firewall to block all incoming traffic except for
+  ports `22`, `443` and `80` on a web server.
 
