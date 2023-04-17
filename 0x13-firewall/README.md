@@ -20,4 +20,9 @@ to allow web traffic to the computer.
 The two types of fire wall `network based` and `host based`; network based are installed on the network like routers and host based are installed on 
 the host machine.
 
-## Tasks files description :books:
+`WARNING:`Be very careful with firewall rules! For instance, if you ever deny port 22/TCP and log out of your server, you will not be able to reconnect
+to your server via SSH, and we will not be able to recover it. When you install UFW, port 22 is blocked by default, so you should unblock it immediately 
+before logging out of your server.
+
+## Tasks files description: :books: 
+
