@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-# Runs the whoami command with the user passed as argument to find who is currently logged in.
+# Runs the whoami command with the 
+#+user passed as argument 
+#+to find who is currently logged in.
 sudo -u "$1" whoami
