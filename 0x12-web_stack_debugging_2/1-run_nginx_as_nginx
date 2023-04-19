@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Fixes a web server to run Nginx as the nginx user listening on port 8080.
+# Allows web server to run Nginx as user, to listen on port 8080.
 
 #replaces the line that starts with "#user www-data" with "user nginx" in the /etc/nginx/nginx.conf configuration file. 
 #+This changes the user that Nginx runs under from www-data to nginx.

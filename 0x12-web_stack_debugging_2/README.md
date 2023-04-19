@@ -20,3 +20,8 @@ Requirements:
 - nginx must be listening on all active IPs on port 8080
 - You cannot use apt-get remove
 Write a Bash script that configures the container to fit the above requirements
+
+* [100-fix_in_7_lines_or_less](./100-fix_in_7_lines_or_less): Bash script
+  that fixes a web server to run Nginx listening on port `8080` as the `nginx`
+  user.
+  * 7 lines long.
