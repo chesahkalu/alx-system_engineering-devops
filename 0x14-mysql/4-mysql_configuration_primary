@@ -42,5 +42,3 @@ server-id = 1
 log_bin = /var/log/mysql/mysql-bin.log
 #--database to be replicated
 binlog_do_db = tyrell_corp
-#--name and location of the mysql relay log file
-relay-log = /var/log/mysql/mysql-relay-bin.log
