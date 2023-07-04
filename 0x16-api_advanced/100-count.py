@@ -2,86 +2,54 @@
 """Function to count words in all hot posts of a given Reddit subreddit."""
 import requests
 
+def count_words(subreddit, word_list, new_after='',
+                words_dict={}):
+    """
+    A recursive function that queries the Reddit API,
+    parses the title of all hot articles, and prints a
+    sorted count of given keywords
+    """
 
-def sort_histogram(histogram={}):
-    '''Sorts and prints the given histogram.
-    '''
-    histogram = list(filter(lambda kv: kv[1], histogram))
-    histogram_dict = {}
-    for item in histogram:
-        if item[0] in histogram_dict:
-            histogram_dict[item[0]] += item[1]
-        else:
-            histogram_dict[item[0]] = item[1]
-    histogram = list(histogram_dict.items())
-    histogram.sort(
-        key=lambda kv: kv[0],
-        reverse=False
-    )
-    histogram.sort(
-        key=lambda kv: kv[1],
-        reverse=True
-    )
-    res_str = '\n'.join(list(map(
-        lambda kv: '{}: {}'.format(kv[0], kv[1]),
-        histogram
-    )))
-    if res_str:
-        print(res_str)
+    word_list = map(lambda x: x.lower(), word_list)
+    word_list = list(word_list)
 
+    res = requests.get("https://www.reddit.com/r/{}/hot.json"
+                       .format(subreddit),
+                       headers={'User-Agent': 'Custom'},
+                       params={'after': new_after},
+                       allow_redirects=False)
 
-def count_words(subreddit, word_list, histogram=[], n=0, after=None):
-    '''Counts the number of times each word in a given wordlist
-    occurs in a given subreddit.
-    '''
-    api_headers = {
-        'Accept': 'application/json',
-        'User-Agent': ' '.join([
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-            'AppleWebKit/537.36 (KHTML, like Gecko)',
-            'Chrome/97.0.4692.71',
-            'Safari/537.36',
-            'Edg/97.0.1072.62'
-        ])
-    }
-    sort = 'hot'
-    limit = 30
-    res = requests.get(
-        '{}/r/{}/.json?sort={}&limit={}&count={}&after={}'.format(
-            'https://www.reddit.com',
-            subreddit,
-            sort,
-            limit,
-            n,
-            after if after else ''
-        ),
-        headers=api_headers,
-        allow_redirects=False
-    )
-    if not histogram:
-        word_list = list(map(lambda word: word.lower(), word_list))
-        histogram = list(map(lambda word: (word, 0), word_list))
-    if res.status_code == 200:
-        data = res.json()['data']
-        posts = data['children']
-        titles = list(map(lambda post: post['data']['title'], posts))
-        histogram = list(map(
-            lambda kv: (kv[0], kv[1] + sum(list(map(
-                lambda txt: txt.lower().split().count(kv[0]),
-                titles
-            )))),
-            histogram
-        ))
-        if len(posts) >= limit and data['after']:
-            count_words(
-                subreddit,
-                word_list,
-                histogram,
-                n + len(posts),
-                data['after']
-            )
-        else:
-            sort_histogram(histogram)
-    else:
+    if res.status_code != 200:
         return
-    
+
+    try:
+        response = res.json().get('data', None)
+
+        if response is None:
+            return
+    except ValueError:
+        return
+
+    children = response.get('children', [])
+
+    for post in children:
+        title = post.get('data', {}).get('title', '')
+        for key_word in word_list:
+            for word in title.lower().split():
+                if key_word == word:
+                    words_dict[key_word] = words_dict.get(key_word, 0) + 1
+
+    new_after = response.get('after', None)
+
+    if new_after is None:
+        sorted_dict = sorted(words_dict.items(),
+                             key=lambda x: x[1],
+                             reverse=True)
+
+        for i in sorted_dict:
+            if i[1] != 0:
+                print("{}: {}".format(i[0], i[1]))
+        return
+
+    return count_words(subreddit, word_list,
+                       new_after, words_dict)
