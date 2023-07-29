@@ -1,2 +1,10 @@
 #!/bin/bash
 cp -r *.html ../
+
+# -r: recursively - copies all files and subdirectories in the current directory 
+# *: wildcard - matches any character. 
+#   *.html: Matches all files with the ".html" extension.
+#   file*: Matches all files or directories that start with "file".
+#   *file*: Matches all files or directories that contain "file" anywhere in their names.
+
+
