@@ -5,7 +5,6 @@ In this project i practiced and learnt some basic introduction to shell programi
 - What does RTFM mean?
 - What is a Shebang
 - What is the Shell
-- What is the shell
 - What is the difference between a terminal and a shell
 - What is the shell prompt
 - How to use the history (the basics)
@@ -38,7 +37,7 @@ In this project i practiced and learnt some basic introduction to shell programi
 - What is an alias
 - When do you use the command help instead of man
 ## Tasks file description:
-* [0-current_working_directory](./0-current_working_directory): Bash script that
+  * [0-current_working_directory](./0-current_working_directory): Bash script that
   prints the absolute pathname of the current working directory.
 
   * [1-listit](./1-listit): Bash script that displays the contents list of current directory.
