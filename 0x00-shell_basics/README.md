@@ -36,6 +36,15 @@ In this project i practiced and learnt some basic introduction to shell programi
 - What are the different kinds of commands
 - What is an alias
 - When do you use the command help instead of man
+#### Globbing Patterns in Shell
+Globbing patterns are used in shell commands to select and manipulate files based on their names:
+- *: Matches zero or more characters.
+- ?: Matches exactly one character.
+- [abc]: Matches any single character in the brackets.
+- [a-z]: Matches any single character in the range of a to z.
+- [^abc]: Matches any single character NOT in the brackets.
+- !(pattern): Matches anything that does not match the pattern.
+
 ## Tasks file description:
   * [0-current_working_directory](./0-current_working_directory): Bash script that
   prints the absolute pathname of the current working directory.
