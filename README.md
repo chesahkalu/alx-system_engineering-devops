@@ -4,9 +4,10 @@
 
 ### :page_with_curl: In this repository, i worked on various devops concepts while getting hands-on experience with some tools and technologies provided in ALX Software Engineering program.Some of the concepts I worked on include:
 
-- Linux / Unix system administration and shell scripting on Ubuntu 14.04 LTS
+- Linux / Unix commands and shell scripting
 - Networks / Networking Theories and concepts
 - API ( Application Programming Interface ) and Web Services
+- System administration on Ubuntu 14.04 LTS 
 - Web infrastructure design:
     * Infrastructure as code
     * Servers ( web-servers and application-servers )
