@@ -65,15 +65,15 @@ Globbing patterns are used in shell commands to select and manipulate files base
     * Long format.
     * User and group ID's displayed numerically.
     
-  * [6-firstdirectory](./6-firstdirectory): Bash script that creates a directory named `holberton`
+  * [6-firstdirectory](./6-firstdirectory): Bash script that creates a directory named `my_first_directory`
   in the `/tmp/` directory.
 
   * [7-movethatfile](./7-movethatfile): Bash script that moves the file `betty` from `/tmp/` to
-  `/tmp/holberton`.
+  `/tmp/my_first_directory`.
   
-  * [8-firstdelete](./8-firstdelete): Bash script that deletes the file `betty` in `/tmp/holberton`.
+  * [8-firstdelete](./8-firstdelete): Bash script that deletes the file `betty` in `/tmp/my_first_directory`.
 
-  * [9-firstdirdeletion](./9-firstdirdeletion): Bash script that deletes the directory `holberton`
+  * [9-firstdirdeletion](./9-firstdirdeletion): Bash script that deletes the directory `my_first_directory`
   in the `/tmp` directory.
 
   * [10-back](./10-back): Bash script that changes the working directory to the previous one.
