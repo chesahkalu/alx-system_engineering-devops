@@ -22,3 +22,5 @@
 #### :file_folder: Directories in this repository:
 
 - [0x00-shell_basics](./0x00-shell_basics) : This directory contains scripts that perform basic shell commands.
+
+- [0x01-shell_permissions](./0x01-shell_permissions) : This directory contains scripts that perform shell commands related to permissions.
